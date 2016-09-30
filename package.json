@@ -1,0 +1,16 @@
+{
+  "title": "calibrador",
+  "name": "calibrador",
+  "version": "0.0.1",
+  "description": "Adjust caliber web urls.",
+  "main": "index.js",
+  "author": "guilherme.magalhaes",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "license": "MIT",
+  "keywords": [
+    "jetpack"
+  ]
+}
