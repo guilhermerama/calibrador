@@ -1,4 +1,4 @@
-var broken_url = "alm://caliberrm!v120p060_20000_110/;
+var broken_url = "alm://caliberrm;
 
 var links = document.getElementsByTagName("a");
 
