@@ -1,9 +1,15 @@
+var tabs = require("sdk/tabs");
 var data = require("sdk/self").data;
 var pageMod = require("sdk/page-mod");
 
 pageMod.PageMod({
-  include: "/.*caliber:11012.*/",
-  contentScriptFile: data.url("replace.js")
+  include: "*",
+  contentScriptFile: data.url("replace.js"),
+  attachTo: ["top"],
+  onAttach: function(worker) {
+        worker.port.on("click", function(urlClicked) {
+            tabs.open(urlClicked);
+
+        });
+     },
 });
-
-

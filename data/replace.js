@@ -1,16 +1,28 @@
-var broken_url = "alm://caliberrm;
+var brokenUrl = "alm://caliberrm";
 
-var links = document.getElementsByTagName("a");
+window.addEventListener("click", function(event) {
+    var link = event.target;
+    var mouseButton = event.which
 
-for (var i = 0; i < links.length; i++) {
-    var url_dest = links[i].href;
+    if (mouseButton == 1) {
+        while (link && link.localName != "a")
+            link = link.parentNode;
 
-    if (url_dest.indexOf(broken_url) > -1) {
-        var new_id = url_dest.match(/110\/(.*);ns=requirement/)[1];
-        var window_url = window.location.href;
-        var old_id = window_url.match(/requirementDocument=(.*?)&/)[1];
-        var new_url = window_url.replace(old_id, new_id);
-        links[i].href = new_url;
+        if (link != null) {
+
+            var urlDestino = link.href;
+
+            if (urlDestino.indexOf(brokenUrl) > -1) {
+                var novoId = urlDestino.match(/110\/(.*);ns=requirement/)[1];
+                var windowUrl = window.location.href;
+                var velhoId = windowUrl.match(/requirementDocument=(.*?)&/)[1];
+                var urlDestino = windowUrl.replace(velhoId, novoId);
+                self.port.emit("click", urlDestino);
+                event.preventDefault();
+            }
+
+        }
+
+
     }
-
-}
+}, false);
