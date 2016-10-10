@@ -3,7 +3,7 @@ var data = require("sdk/self").data;
 var pageMod = require("sdk/page-mod");
 
 pageMod.PageMod({
-  include: "/.*caliber:1102.*/",
+  include: /.*caliber.*/,
   contentScriptFile: data.url("replace.js"),
   attachTo: ["top"],
   onAttach: function(worker) {
